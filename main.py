@@ -1534,7 +1534,13 @@ async def main():
     await init_db()
     print("[boot] db initialized", flush=True)
 
+    await init_db()
+
+    await bot.delete_webhook(drop_pending_updates=True)
+    print("WEBHOOK DELETED, START POLLING", flush=True)
+
     await dp.start_polling(bot)
+
 
 
 
